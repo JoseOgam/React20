@@ -14,8 +14,8 @@ let AddTask = (props) => {
     }
     return (<div>
         <form className="add-option" onSubmit={addTask}>
-            <input className="add-option__input" value={title} placeholder="title" onChange={(e)=>setTitle(e.target.value)} />
-            <textarea className="add-option__input" value={body} placeholder="body" onChange={(e)=>setBody(e.target.value)} />
+            <input className="add-option__input" value={title} placeholder="what to do!!" onChange={(e)=>setTitle(e.target.value)} />
+            <textarea className="add-option__input" value={body} placeholder="comment" onChange={(e)=>setBody(e.target.value)} />
             <button className="button">Submit</button>
         </form>
     </div>)
