@@ -3,10 +3,10 @@ import Task from "./task";
 const ListTask = (props) => {
     return props.tasks.map((task, index) => {
         return (
-            <div className="ListTask"><Task
-            key={ task.title }
+            <div key={index} className="ListTask"><Task
+            key={index}
             task={ task }
-            remove={ props.remove }
+            onDelete={ props.removeTask }
             index={ index + 1 }
             
         /> </div>)
