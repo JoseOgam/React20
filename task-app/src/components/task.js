@@ -1,7 +1,7 @@
 const Task = (props) => {
     return (<div>
         <div>
-            <h1>{props.index}. { props.task.title }</h1>
+            <h3>{props.index}. { props.task.title }</h3>
         </div>
         <div>
             <p>{ props.task.body }</p>
