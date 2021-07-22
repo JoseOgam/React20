@@ -6,7 +6,7 @@ const Task = (props) => {
         <div>
             <p>{ props.task.body }</p>
         </div>
-        <button onClick={()=>props.remove(props.task.title)}>Delete</button>
+         <button onClick={() => props.onDelete(props.task.title)}>delete</button>
     </div>)
  }
 export default Task;
