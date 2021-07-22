@@ -5,7 +5,7 @@ import reducer from "./components/reducer/reducer"
 import './components/styles/styles.scss'
 const App = () => {
     let [tasks, dispatch] = useReducer(reducer, [])
-    let remove = (title) => {
+    let removeTask = (title) => {
         dispatch({
             type: "REMOVE",
             title
@@ -30,7 +30,7 @@ const App = () => {
         <h1>Task App</h1>
        
         <AddTask dispatch={ dispatch } />
-         <ListTask tasks={ tasks } remove={remove }/>
+         <ListTask tasks={ tasks } removeTask={removeTask }/>
     
     </div>)
 }
