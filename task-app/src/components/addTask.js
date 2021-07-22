@@ -13,10 +13,10 @@ let AddTask = (props) => {
         setBody('');
     }
     return (<div>
-        <form onSubmit={addTask}>
-            <input value={title} placeholder="title" onChange={(e)=>setTitle(e.target.value)} />
-            <textarea value={body} placeholder="body" onChange={(e)=>setBody(e.target.value)} />
-            <button>Submit</button>
+        <form className="add-option" onSubmit={addTask}>
+            <input className="add-option__input" value={title} placeholder="title" onChange={(e)=>setTitle(e.target.value)} />
+            <textarea className="add-option__input" value={body} placeholder="body" onChange={(e)=>setBody(e.target.value)} />
+            <button className="button">Submit</button>
         </form>
     </div>)
 }
