@@ -3,12 +3,19 @@ import AddTask from "./addTask"
 import ListTask from "./listTask"
 import reducer from "./reducer/reducer"
 
-let App = () => {
-    let [tasks, dispatch] = useReducer(reducer,[])
+const App = () => {
+    let [tasks, dispatch] = useReducer(reducer, [])
+    let remove = (title) => {
+        dispatch({
+            type: "REMOVE",
+            title
+        })
+     }
+    
     return (<div>
         <h1>Task App</h1>
-        <ListTask tasks={tasks} />
-        <AddTask dispatch={dispatch}/>
+        <ListTask tasks={ tasks } remove={remove }/>
+        <AddTask dispatch={ dispatch }/>
     
     </div>)
 }
