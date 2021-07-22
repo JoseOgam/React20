@@ -6,7 +6,7 @@ let reducer = (state, action) => {
         case "ADD_TASK":
             return [...state, { title: action.title, body: action.body }];
         case "REMOVE":
-            return state.filter((task) => task.title !== task.title);
+            return state.filter((task) => task.title !== action.title);
         default:
             return state;
     }
