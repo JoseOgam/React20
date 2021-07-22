@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react"
-import AddTask from "./addTask"
-import ListTask from "./listTask"
-import reducer from "./reducer/reducer"
+import AddTask from "./components/addTask"
+import ListTask from "./components/listTask"
+import reducer from "./components/reducer/reducer"
 
 const App = () => {
     let [tasks, dispatch] = useReducer(reducer, [])
