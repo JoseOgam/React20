@@ -1,5 +1,6 @@
 const Task = (props) => {
-    return (<div>
+    return (
+        <div className="ListTask">
         <div>
             <h3>{props.index}. { props.task.title }</h3>
         </div>
