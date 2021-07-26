@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import { ADD_TASK } from './redux/constants'
 let AddTask = (props) => {
     let [title, setTitle] = useState('')
     let [body, setBody] = useState('')
     let addTask = (e) => {
         e.preventDefault()
         props.dispatch({
-            type: "ADD_TASK",
+            type: ADD_TASK,
             title,
             body
         })

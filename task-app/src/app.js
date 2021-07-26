@@ -1,13 +1,16 @@
 import React, { useEffect, useReducer } from "react"
 import AddTask from "./components/addTask"
 import ListTask from "./components/listTask"
-import reducer from "./components/reducer/reducer"
+import reducer from "./components/redux/reducer/reducer"
+import { connect } from "react-redux";
 import './components/styles/styles.scss'
-const App = () => {
+import { REMOVE , SHOW_TASKS} from "./components/redux/constants";
+const App = (props) => {
+    console.log(props)
     let [tasks, dispatch] = useReducer(reducer, [])
     let removeTask = (title) => {
         dispatch({
-            type: "REMOVE",
+            type: REMOVE,
             title
         })
     }
@@ -17,7 +20,7 @@ const App = () => {
         if (taskInfo)
         {
             dispatch({
-                type: "SHOW_TASKS",
+                type: SHOW_TASKS,
                 tasks: taskInfo
             })
         }
@@ -34,5 +37,9 @@ const App = () => {
     
     </div>)
 }
-
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        state
+    }
+}
+export default connect(mapStateToProps) (App);
