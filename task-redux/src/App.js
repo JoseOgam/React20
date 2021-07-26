@@ -1,33 +1,15 @@
-import { connect } from "react-redux";
 import './App.css'
+import Form from "./components/forms";
+import TodoList from './components/todoList';
 
-function App(props) {
-  console.log(props)
-  let handleInc = (evt) => {
-    evt.preventDefault()
-    props.dispatch({
-      type: "INCREMENT"
-    })
-  }
-  let handleDec = (evt) => {
-    evt.preventDefault()
-    props.dispatch({
-      type: "DECREMENT"
-    })
-  }
+function App() {
   return (
-    <div className="App">
-      <div className="backgroundS">
-          <button onClick={handleInc}>Increase</button>
-        <button onClick={ handleDec }>Decrease</button>
-        <p>{props.count}</p>
+    <div>
+      <Form />
+      <TodoList />
     </div>
-    </div>
-  );
+  )
+ 
 }
-const mapStateToProps = (state) => {
-  return {
-    count: state.count
-  }
-}
-export default connect(mapStateToProps) (App);
+
+export default App;
