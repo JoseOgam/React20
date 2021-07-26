@@ -1,6 +1,9 @@
 import { connect } from "react-redux"
-
-const TodoList = ({todoList}) => {
+import * as actionTypes from '../redux/actions'
+const TodoList = ({ todoList, removeTodos }) => {
+    const deleteTodo = () => {
+        removeTodos()
+    }
     
     return (<div>
         {
@@ -9,7 +12,8 @@ const TodoList = ({todoList}) => {
                     { todoList.map((todo, index) => {
                         return (
                             <div key={todo.id}>
-                                  <h3>{index + 1}. {todo.value}</h3>
+                                <h3>{ index + 1 }. { todo.value }</h3>
+                                <button onClick={deleteTodo}>Delete</button>
                           </div>
                         )
                     })}
@@ -28,7 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        
+        removeTodos: (todo)=> dispatch(actionTypes.removeTodos(todo))
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps) (TodoList)

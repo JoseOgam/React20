@@ -25,6 +25,11 @@ let reducer = (state = initialState, action) => {
             return {
                 ...state,
                 title: action.title
+            };
+        case actionTypes.REMOVE_TODOS:
+            return {
+                ...state,
+                todos: state.todos.filter((todo)=> todo.id !==action.id)
             }
         
         default:
