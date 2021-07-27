@@ -56,7 +56,7 @@ const ReactModal = (props) => {
     </div>
         
     </Modal>
-        </div>
+    </div>
     )
 }
 
