@@ -1,38 +1,119 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(35, 5, 63);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  background-color:rgb(115, 16, 207);
+  width: 40rem;
+  padding: 1rem 4rem;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+margin: 1rem 0;
+
+}
+
+.form-control {
+  margin: 0 0 0.6rem;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  display: block;
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  width: 100%;
+  padding: 1rem;
+  border: 1px var(--border-color) solid;
+  border-radius: 4px;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.form-control.error input {
+  border-color: var(--error-color);
+}
+
+small {
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: darkred;
+  visibility: hidden;
+}
+
+
+.form-control.error small {
+  visibility: visible;
+}
+
+input:focus {
+  border-color: var(--border-focus-color);
+}
+
+
+
+
+
+
+
+.hint {
+  font: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--hint-color);
+}
+
+button {
+  display: block;
+  font: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem;
+  margin: 2rem 0;
+  width: 100%;
+  border: 1px #fff solid;
+  border-radius: 4px;
+  background-color: var(--button-bg-color);
+  color: var(--border-focus-color);
+  cursor: pointer;
+  outline: none;
+}
+
+@media (hover: hover) {
+  button:hover {
+    background-color: var(--button-bg-hover-color);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (hover: none) {
+  button:active {
+    opacity: 0.8;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 85%;
+    padding: 1rem 2rem;
   }
 }
