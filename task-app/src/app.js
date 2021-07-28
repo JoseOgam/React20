@@ -1,45 +1,40 @@
-import React, { useEffect, useReducer } from "react"
+import React from "react"
 import AddTask from "./components/addTask"
 import ListTask from "./components/listTask"
-import reducer from "./components/redux/reducer/reducer"
-import { connect } from "react-redux";
+import * as actionType from '../src/components/redux/actions'
 import './components/styles/styles.scss'
-import { REMOVE , SHOW_TASKS} from "./components/redux/constants";
-const App = (props) => {
-    console.log(props)
-    let [tasks, dispatch] = useReducer(reducer, [])
-    let removeTask = (title) => {
-        dispatch({
-            type: REMOVE,
-            title
-        })
-    }
+import { connect } from "react-redux"
+const App = ({tasks, showTasks}) => {
     
-    useEffect(() => {
-        let taskInfo = JSON.parse(localStorage.getItem('tasks'));
-        if (taskInfo)
-        {
-            dispatch({
-                type: SHOW_TASKS,
-                tasks: taskInfo
-            })
-        }
-    },[]);
-    useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(tasks))
-    },[tasks])
+    // useEffect(() => {
+    //     let taskInfo = JSON.parse(localStorage.getItem('tasks'));
+    //     if (taskInfo)
+    //     {
+    //         showTasks({
+    //             tasks: taskInfo
+    //         })
+    //     }
+    // },[]);
+    // useEffect(() => {
+    //     localStorage.setItem('tasks', JSON.stringify(tasks))
+    // },[tasks])
     
     return (<div className="container">
         <h1>Task App</h1>
        
-        <AddTask dispatch={ dispatch } />
-         <ListTask tasks={ tasks } removeTask={removeTask }/>
+        <AddTask />
+         <ListTask />
     
     </div>)
 }
 const mapStateToProps = (state) => {
     return {
-        state
+        tasks: state.tasks
     }
 }
-export default connect(mapStateToProps) (App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showTasks: ()=>dispatch(actionType.showTasks())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App);
