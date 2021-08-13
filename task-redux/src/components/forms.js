@@ -4,30 +4,25 @@ const Form = ({title, error, todos, setTitle, setError, addTodos}) => {
     const handleChange = (e) => {
         const title = e.target.value
         setTitle(title)
-        if (title.length === 0)
-        {
-                setError("please enter title")
-        } else
-        {
-            setError("")
-            }
         
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (title.length === 0)
+        if (!title)
         {
-            setError("please enter title")
+           setError("please enter title")
         } else
         {
             addTodos()
+            setTitle('')
         }
-        setTitle('')
+     
     }
     
 
     return (
         <div>
+            <p>{error}</p>
             <form onSubmit={handleSubmit}>
                 <input value={title} onChange={handleChange} placeholder="title" />
                 <button>add Todo</button>
