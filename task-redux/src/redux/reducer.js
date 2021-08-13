@@ -29,7 +29,13 @@ let reducer = (state = initialState, action) => {
         case actionTypes.REMOVE_TODOS:
             return {
                 ...state,
-                todos: state.todos.filter((todo)=> todo.id !==action.id)
+                todos: state.todos.filter((todo) => todo.id !== action.id)
+                
+            }
+        case actionTypes.SET_ERROR:
+            return {
+                ...state,
+                error: action.error
             }
         
         default:
