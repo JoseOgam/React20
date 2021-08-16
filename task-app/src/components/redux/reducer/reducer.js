@@ -44,7 +44,10 @@ let reducer = (state = initialState, action) => {
                 error: action.error
             }
          case actionType.REMOVE:
-            return state.filter((task) => task.title !== action.title);
+            return {
+                ...state,
+                tasks:[...state.filter((task) => task.title !== action.title)]
+            }
         default:
             return state;
     }
