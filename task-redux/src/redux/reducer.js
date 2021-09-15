@@ -15,29 +15,28 @@ let reducer = (state = initialState, action) => {
                 value: state.title
             }
 
-            return {
-                ...state,
+            return Object.assign({},{
+              
                 todos: state.todos.concat(newItem),
                 title: "",
                 error: ""
-            };
+            });
         case actionTypes.SET_TITLE:
-            return {
-                ...state,
+            return Object.assign({},state,{
+           
                 title: action.title
-            };
+            });
         case actionTypes.REMOVE_TODOS:
-            return {
-                ...state,
+            return Object.assign({},state,{
                 todos: state.todos.filter((todo) => todo.id !== action.id)
                 
-            }
+            })
         case actionTypes.SET_ERROR:
-            return {
-                ...state,
+            return Object.assign({},state,{
+              
                 error: action.error
             }
-        
+        )
         default:
             return state;
     }

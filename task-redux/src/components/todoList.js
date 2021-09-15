@@ -32,7 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeTodos: (todo)=> dispatch(actionTypes.removeTodos(todo))
+        removeTodos: ()=> dispatch(actionTypes.removeTodos())
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps) (TodoList)
