@@ -56,6 +56,15 @@ function Header() {
                   Books
                 </NavLink>
               </li>
+                 <li className="nav-item">
+                <NavLink
+                  to="/contact"
+                  className="nav-link"
+                  activeStyle={activeStyle}
+                >
+                  Contact
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
