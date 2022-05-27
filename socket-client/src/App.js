@@ -1,19 +1,8 @@
-import { useState } from "react";
+import Counter from "./components/counter"
 
-function App() {
-  const [counter, setCounter] = useState(0)
-
-  const add = () => setCounter(counter + 1)
-  const subtract = () => setCounter(counter - 1)
-  const reset = () => setCounter(0)
-  return (
-    <div >
-      <div>{counter}</div>
-      <button onClick={add} >add</button>
-      <button onClick={reset} >reset</button>
-      <button onClick={subtract} >subtract</button>
-    </div>
-  );
+const App = () => {
+  return (<div>
+    <Counter />
+  </div>)
 }
-
-export default App;
+ export default App
