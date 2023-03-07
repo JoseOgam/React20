@@ -10,9 +10,7 @@ const App = () => {
   // add form Data
   const addFormData = (e) => {
     e.preventDefault()
-    setFormData([...formData, name, email, cssComp, message])
-      console.log(formData)
-  
+    setFormData([...formData, name, email, cssComp, message]);
     // clears form
     setName("")
     setEmail("")
@@ -21,19 +19,19 @@ const App = () => {
     
     
   }
-  //set items into local storage inform of a JSON string
+  //changes a JSON string to noraml array and loads it in the browser
   useEffect(() => {
-    localStorage.setItem("formData", JSON.stringify(formData))
-  }, [formData])
-
-    //changes a JSON string to noraml array and loads it in the browser
-  useEffect(() => {
-    var formDataInfo = JSON.parse(localStorage.getItem("formData"));
+    const formDataInfo = JSON.parse(localStorage.getItem("formData"));
     if (formDataInfo)
     {
       setFormData(formDataInfo)
     }
   }, [])
+
+  //set items into local storage inform of a JSON string
+  useEffect(() => {
+    localStorage.setItem("formData"+new Date().getTime(), JSON.stringify(formData))
+  }, [formData])
 
   return (
     <div>
