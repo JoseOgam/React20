@@ -1,5 +1,5 @@
 import './App.css'
-import {useState} from "react"
+import {useEffect, useState} from "react"
 const App = () => {
   const [formData, setFormData] = useState([])
   const [name, setName] = useState("")
@@ -14,13 +14,26 @@ const App = () => {
       console.log(formData)
   
     // clears form
-    // setName("")
-    // setEmail("")
-    // setCssComp("")
-    // setMessage("")
+    setName("")
+    setEmail("")
+    setCssComp("")
+    setMessage("")
     
     
   }
+  //set items into local storage inform of a JSON string
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData))
+  }, [formData])
+
+    //changes a JSON string to noraml array and loads it in the browser
+  useEffect(() => {
+    var formDataInfo = JSON.parse(localStorage.getItem("formData"));
+    if (formDataInfo)
+    {
+      setFormData(formDataInfo)
+    }
+  }, [])
 
   return (
     <div>
