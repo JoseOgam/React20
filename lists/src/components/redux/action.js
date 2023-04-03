@@ -19,3 +19,16 @@ export const setBody = (body) => {
         body: body
     }
 }
+
+export const setError = (error) => {
+    return {
+        type: actionType.SET_ERROR,
+        error: error
+    }
+}
+
+export const showTasks = () => {
+    return {
+        type: actionType.SHOW_TASKS
+    }
+}
