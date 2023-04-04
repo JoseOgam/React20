@@ -44,6 +44,11 @@ let taskReducer = (state = initialState, action) => {
                 error: action.error
 
             }
+        case actionType.REMOVE_Task:
+            return {
+                ...state,
+                tasks: [state.tasks.filter((task) => task.title !== task)]
+            }
         default:
             return state
     }

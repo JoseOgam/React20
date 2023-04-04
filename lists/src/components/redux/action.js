@@ -32,3 +32,9 @@ export const showTasks = () => {
         type: actionType.SHOW_TASKS
     }
 }
+
+export const removeTask = () => {
+    return {
+        type: actionType.REMOVE_Task
+    }
+}
