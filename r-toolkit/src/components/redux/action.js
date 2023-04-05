@@ -32,3 +32,9 @@ export const showTodo = () => {
         type: actionType.SHOW_TODO
     }
 }
+
+export const setError = () => {
+    return {
+        type: actionType.SET_ERROR
+    }
+}
