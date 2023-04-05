@@ -1,7 +1,10 @@
+import Todos from "./components/addTodo";
+
 function App() {
   return (
-    <div className="App">
-
+    <div>
+      <h2>Todo App</h2>
+      <Todos />
     </div>
   );
 }
