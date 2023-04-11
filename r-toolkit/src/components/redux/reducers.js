@@ -39,8 +39,10 @@ const todosSlice = createSlice({
 
         }
         
+        
     }
+    
 })
 
-export const {addTodo,addTitle,adDescription} = todosSlice.actions
+export const {addTodo,addTitle,addDescription} = todosSlice.actions
 export default todosSlice
