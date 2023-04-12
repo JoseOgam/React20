@@ -1,4 +1,4 @@
-import * as actionType from "./redux/reducers"
+import * as actionType from "./redux/action"
 import { connect } from "react-redux"
 
 let Todos = ({addTodo,addTitle,addDescription,title,description }) => {
@@ -15,6 +15,9 @@ let Todos = ({addTodo,addTitle,addDescription,title,description }) => {
     const onSubmit = (e) => {
         e.preventDefault()
         addTodo()
+        addTitle("")
+        addDescription("")
+       
     }
     return (<div>
         <form onSubmit={onSubmit}>
@@ -43,7 +46,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
          addTodo: ()=>dispatch(actionType.addTodo()),
-        addTitle: (title) => dispatch(actionType.addTitle(title)),
+        addTitle: (title) => dispatch(actionType.todoTitle(title)),
         addDescription: (description) => dispatch(actionType.addDescription(description)),
        
    }
