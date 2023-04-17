@@ -1,5 +1,6 @@
 import * as actionType from "./redux/action"
 import { connect } from "react-redux"
+import "./components.css"
 
 let Todos = ({addTodo,addTitle,addDescription,title,description }) => {
     const handleTitle = (e) => {
@@ -20,7 +21,7 @@ let Todos = ({addTodo,addTitle,addDescription,title,description }) => {
        
     }
     return (<div>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="form">
             <div>
                  <input placeholder="todo" value={title} onChange={handleTitle} />
             </div>
