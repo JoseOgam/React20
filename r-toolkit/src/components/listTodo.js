@@ -1,14 +1,15 @@
 import { connect } from "react-redux"
+import "./components.css"
 const ListTodo = ({Todos}) => {
     return (
         <div>
             {
                 Todos.map((todo,index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} className="lists">
                             <div>
 
-                                <h2>{index + 1}. { todo.title }</h2>
+                                <p>{index + 1}. { todo.title }</p>
                             </div>
                             <div>
                                   <p>{ todo.description }</p>
