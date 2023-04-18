@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
+import * as actionType from "./redux/action"
 import "./components.css"
-const ListTodo = ({Todos}) => {
+const ListTodo = ({Todos, removeTodo}) => {
     return (
         <div>
             {
@@ -16,7 +17,7 @@ const ListTodo = ({Todos}) => {
                           </div>
                             
                             <div>
-                                <button>Delete</button>
+                                <button onClick={removeTodo}>Delete</button>
                           </div>
                         </div>
                     )
@@ -34,4 +35,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ListTodo)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeTodo:(title)=>dispatch(actionType.removeTodo(title))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ListTodo)

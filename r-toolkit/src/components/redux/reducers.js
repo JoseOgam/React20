@@ -69,6 +69,12 @@ const todosSlice = (state = initialState, action) => {
                 ...state,
                 description: action.description
             }
+        case actionType.REMOVE_TODO:
+          
+            return {
+                ...state,
+                todos:[state.todos.filter((todo)=> todo.title !== action.title)]
+            }
         default:
             return state
     }
