@@ -1,19 +1,11 @@
+import AddTodo from "./components/addTodo";
+import TodoList from "./components/todoList";
+
 function App() {
-  return (
-    <div className="App">
-      <form>
-        <div>
-          <input placeholder="title"/>
-        </div>
-        <div>
-          <input placeholder="body" />
-        </div>
-        <div>
-          <button>addtask</button>
-        </div>
-    </form>
-    </div>
-  );
+  return (<div>
+    <AddTodo />
+    <TodoList />
+ </div>)
 }
 
 export default App;
