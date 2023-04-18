@@ -3,27 +3,32 @@ import { useDispatch } from "react-redux";
 import { addTask } from "../components/redux/tasksSlice";
 
 const AddTodo = () => {
-	const [value, setValue] = useState('');
+    const [value, setValue] = useState('');
+    const [body, setBody] = useState('')
 
 	const dispatch = useDispatch();
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
-		if(value.trim().length === 0)
+		if(value.trim().length  === 0)
 		{
 			alert("Enter a task before adding !!");
-			setValue("");
+            setValue("");
+            setBody("")
+       
 			return;
 		}
 
 		dispatch(
 			addTask({
-				task: value
+                task: value,
+                body: body
 			})
 		);
 
-		setValue("");
+        setValue("");
+        setBody("")
 	};
 
 	return (
@@ -31,10 +36,15 @@ const AddTodo = () => {
 			<input
 				type="text"
 				className="task-input"
-				placeholder="Add task"
+				placeholder="title"
 				value={value}
 				onChange={(event) => setValue(event.target.value)}
-			></input>
+            />
+            <input
+                type='text'
+                className='task-input'
+                placeholder='body'
+                value={ body } onChange={ (event) => setBody(event.target.value) } />
 
 			<button className="task-button" onClick={onSubmit}>
 				Save

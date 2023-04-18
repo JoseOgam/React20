@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import { deleteTask } from "./redux/tasksSlice";
 
-const TodoItem = ({ id, title, index }) => {
+const TodoItem = ({ id, title, index, body }) => {
 
 	const dispatch = useDispatch();
 
@@ -18,7 +18,10 @@ const TodoItem = ({ id, title, index }) => {
 		<div className="task-item">
 			<div>
 				{index + 1}. {title}
-			</div>
+            </div>
+            <div>
+                {body}
+            </div>
 			<div>
 				<button className="remove-task-button" onClick={()=>{
 					removeTask();
