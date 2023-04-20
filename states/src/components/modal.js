@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux"
 import styles from "./Modal.module.css"
 import {RiCloseLine} from "react-icons/ri"
-const Modal = ({setIsOpen}) => {
+const Modal = ({ setIsOpen }) => {
+    const todos = useSelector((state) => {
+        return state.todos
+    })
     return (
         <div>
             <>
@@ -14,8 +18,8 @@ const Modal = ({setIsOpen}) => {
                  <RiCloseLine style={{ marginBottom: "-3px" }} />
                 </button>
                 <div className={styles.modalContent}>
-                            <input placeholder="title" />
-                            <input placeholder="body"/>
+                            <input placeholder="title" value={todos.title} />
+                            <input placeholder="body" value={todos.body}/>
                 </div>
                  <div className={styles.modalActions}>
                  < div className={ styles.actionsContainer }>
