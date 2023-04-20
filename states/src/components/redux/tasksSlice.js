@@ -7,10 +7,13 @@ export const tasksSlice = createSlice({
         addTask: (state, action) => {
             const newTask = {
                 id: new Date(),
-                name: action.payload.task,
+                title: action.payload.title,
                 body: action.payload.body
             }
              state.push(newTask)
+        },
+        todoTogle: {
+            
         },
 
         deleteTask: (state, action) => {
@@ -21,7 +24,7 @@ export const tasksSlice = createSlice({
 
 })
 
-export const { addTask, deleteTask } = tasksSlice.actions
+export const { addTask, deleteTask, todoTogle } = tasksSlice.actions
 
 const taskReducers = tasksSlice.reducer
 export default taskReducers

@@ -10,7 +10,7 @@ const TodoList = () => {
 	return (
 		<ul className="tasks-list">
 			{todos.map((todo, index) => (
-				<TodoItem key={index} index={index} id={todo.id} title={todo.name} body={todo.body} completed={todo.status} />
+				<TodoItem key={index} index={index} id={todo.id} title={todo.title} body={todo.body} completed={todo.status} />
 			))}
 		</ul>
 	);

@@ -22,7 +22,7 @@ const AddTodo = () => {
 
 		dispatch(
 			addTask({
-                task: value,
+                title: value,
                 body: body
 			})
 		);
