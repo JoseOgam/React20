@@ -32,7 +32,7 @@ const AddTodo = () => {
 	};
 
 	return (
-		<div className="add-todo">
+		<form className="add-todo" onSubmit={onSubmit}>
 			<input
 				type="text"
 				className="task-input"
@@ -46,10 +46,10 @@ const AddTodo = () => {
                 placeholder='body'
                 value={ body } onChange={ (event) => setBody(event.target.value) } />
 
-			<button className="task-button" onClick={onSubmit}>
+			<button className="task-button">
 				Save
 			</button>
-		</div>
+		</form>
 	);
 };
 

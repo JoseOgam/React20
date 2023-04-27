@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux"
 import styles from "./Modal.module.css"
-import {RiCloseLine} from "react-icons/ri"
+import FormInputs from "./formIputs"
 const Modal = ({ setIsOpen }) => {
     const todos = useSelector((state) => {
         return state.todos
     })
+   
+
     return (
         <div>
             <>
@@ -16,41 +18,19 @@ const Modal = ({ setIsOpen }) => {
                         
                         <div className={ styles.modalHeader }>
                             
-                            <h5 className={ styles.heading }>Dialog</h5>
+                            <h5 className={ styles.heading }>Update your Todos</h5>
                             
                         </div>
-                        
-                        <button className={ styles.closeBtn } onClick={ () => setIsOpen(false) }>
-                            
-                            <RiCloseLine style={ { marginBottom: "-3px" } } />
-                            
-                        </button>
                         
                         <div className={ styles.modalContent }>
-
-                            
-                            <input placeholder="title" value={ todos.title } />
-                            
-                            <input placeholder="body" value={ todos.body } />
-                            
-                        </div>
                         
-                        <div className={ styles.modalActions }>
-                            
-                            < div className={ styles.actionsContainer }>
-                                
-                                <button className={ styles.cancelBtn } onClick={ () => setIsOpen(false) } >
-                                    
-                                Cancel
-            
-                                </button>
 
-                        < button className={styles.updateBtn} onClick={() => setIsOpen(false)}>
-                                    Update
-                                    
-                                </button>
-                                
-                            </div>
+                            
+                            {
+                                todos.map((todo, index) => (
+                                    <FormInputs key={index} id={todo.id} title={todo.title} body={todo.body} setIsOpen={setIsOpen}/>
+                                ))
+                           }
                             
                         </div>
                         
