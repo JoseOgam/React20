@@ -11,11 +11,11 @@ const AddTodo = () => {
 	const onSubmit = (event) => {
 		event.preventDefault();
 
-		if(value.trim().length  === 0)
+		if(value.trim().length === 0 || body.trim().length  === 0)
 		{
 			alert("Enter a task before adding !!");
-            setValue("");
-            setBody("")
+            // setValue("");
+            // setBody("")
        
 			return;
 		}

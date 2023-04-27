@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
 import styles from "./Modal.module.css"
-import FormInputs from "./formIputs"
+// import FormInputs from "./formIputs"
 const Modal = ({ setIsOpen }) => {
-    const todos = useSelector((state) => {
-        return state.todos
-    })
+    // const todos = useSelector((state) => {
+    //     return state.todos
+    // })
    
 
     return (
@@ -24,13 +24,32 @@ const Modal = ({ setIsOpen }) => {
                         
                         <div className={ styles.modalContent }>
                         
-
+{/* 
                             
                             {
                                 todos.map((todo, index) => (
                                     <FormInputs key={index} id={todo.id} title={todo.title} body={todo.body} setIsOpen={setIsOpen}/>
                                 ))
-                           }
+                           } */}
+                             <form>
+                <div>
+                    <input placeholder="title"  />
+                </div>
+                            
+                <div>
+                     <input placeholder="body"  />
+            </div>
+            <div className={ styles.modalActions }>
+                < div className={ styles.actionsContainer }>
+                    <button className={ styles.cancelBtn } onClick={ () => setIsOpen(false) } >
+                        Cancel
+                    </button>
+                    < button className={ styles.updateBtn } onClick={ () => setIsOpen(false) } >
+                        Update
+                    </button>
+                </div>
+            </div>
+             </form>
                             
                         </div>
                         
