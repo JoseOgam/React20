@@ -5,19 +5,27 @@ export const todoSlice = createSlice({
   initialState: {
     todoList: [
       { id: 1, content: "Hit the gym" },
-      { id: 1, content: "Meet Gearge" },
+      { id: 2, content: "Meet Gearge" },
     ],
   },
   reducers: {
     addTodo: (state, action) => {
       let newTodoList = {
-        id: Math.random(),
+        id: Date.now(),
         content: action.payload.newContent,
       };
       state.todoList.push(newTodoList);
     },
-    deleteTodo: (state, action) => {},
-    editTodo: (state, action) => {},
+    deleteTodo: (state, action) => {
+      let { todoList } = state;
+      state.todoList = todoList.filter((item) => item.id !== action.payload.id);
+    },
+    editTodo: (state, action) => {
+      let { todoList } = state;
+      state.todoList = todoList.map((item) =>
+        item.id === action.payload.id ? action.payload : item
+      );
+    },
   },
 });
 
