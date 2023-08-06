@@ -1,6 +1,11 @@
 import "./app.css";
+import AddTodo from "./components/addTodo";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div>
+      <AddTodo />
+    </div>
+  );
 }
 
 export default App;
