@@ -6,14 +6,14 @@ import { useState } from "react";
 const ListTodo = () => {
   const { todoList } = useSelector((state) => state.TODO);
   const dispatch = useDispatch();
-  const [isEdittins, setEditting] = useState(false);
+  const [isEditing, setEditing] = useState(false);
   const [state, setState] = useState({
     id: "",
     content: "",
     contentError: null,
   });
   const onEditToggle = (id, content) => {
-    setEditting(true);
+    setEditing(true);
     setState({ ...state, id, content });
   };
 
