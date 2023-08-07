@@ -11,7 +11,7 @@ root.render(
   <Auth0Provider
     domain="dev-utpgge1e1noitqxz.us.auth0.com"
     clientId="PT3nctH6mKujVFSA72U7XhtvQEOzBCwD"
-    onRedirectCallback={window.location.origin}
+    redirectUri={window.location.origin}
   >
     <App />
   </Auth0Provider>
