@@ -14,17 +14,17 @@ const moviesSchema = new Schema({
   },
   year: {
     type: Number,
-    required: true,
+    required: false,
   },
   genre: {
     type: [String],
-    required: true,
+    required: false,
   },
   ratings: {
     type: Number,
-    required: true,
+    required: false,
   },
 });
 
-const movies = mongoose.model("movies", moviesSchema);
-module.exports = movies;
+const Movies = mongoose.model("movies", moviesSchema);
+module.exports = Movies;
