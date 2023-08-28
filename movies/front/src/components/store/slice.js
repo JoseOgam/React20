@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "";
+const url = "http://localhost:5000/addmovie";
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
   try {
     const response = await axios.get(url);
@@ -25,7 +25,8 @@ const moviesSlice = createSlice({
       state.status = false;
     },
     [fetchMovies.fulfilled]: (state, action) => {
-      (state.status = true), (state.movies = action.payload);
+      state.status = true;
+      state.movies = action.payload;
     },
     [fetchMovies.rejected]: (state, action) => {
       state.status = false;
