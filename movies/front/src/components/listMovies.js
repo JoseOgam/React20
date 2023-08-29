@@ -16,9 +16,9 @@ const ListMovies = () => {
   return (
     <div>
       {" "}
-      {movies.map((item) => {
+      {movies.map((item, id) => {
         return (
-          <div>
+          <div key={id}>
             <h2>{item.name}</h2>
             <p> {item.genre} </p>
           </div>
