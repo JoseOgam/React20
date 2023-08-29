@@ -13,4 +13,12 @@ const addMovies = async (req, res) => {
   }
 };
 
-module.exports = { addMovies };
+const getMovies = async (req, res) => {
+  try {
+    const movies = await Movies.find({});
+    res.status(200).send(movies);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
+module.exports = { addMovies, getMovies };

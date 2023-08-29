@@ -9,7 +9,23 @@ const ListMovies = () => {
   useEffect(() => {
     dispatch(fetchMovies());
   }, [dispatch]);
-  return <div>ListMovies</div>;
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div>
+      {" "}
+      {movies.map((item) => {
+        return (
+          <div>
+            <h2>{item.name}</h2>
+            <p> {item.genre} </p>
+          </div>
+        );
+      })}{" "}
+    </div>
+  );
 };
 
 export default ListMovies;
