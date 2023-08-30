@@ -15,10 +15,19 @@ const addMovies = async (req, res) => {
 
 const getMovies = async (req, res) => {
   try {
-    const movies = await Movies.find({});
-    res.status(200).send(movies);
+    const getmovies = await Movies.find({});
+    res.status(200).send(getmovies);
   } catch (e) {
     res.status(400).send(e);
   }
 };
-module.exports = { addMovies, getMovies };
+
+const getOne = async (req, res) => {
+  try {
+    const getone = await Movies.findById(req.params.id);
+    res.status(200).send(getone);
+  } catch (error) {
+    return error.message;
+  }
+};
+module.exports = { addMovies, getMovies, getOne };
