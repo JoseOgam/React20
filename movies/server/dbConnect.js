@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const dbConnect = () => {
   const connectionParams = { useNewUrlParser: true };
-  mongoose.connect(process.env.MONGO_URI, connectionParams);
+  const db = process.env.MONGO_URI;
+  mongoose.connect(db, connectionParams);
   mongoose.connection.on("connected", () => {
     console.log("connected to the database successfully");
   });
