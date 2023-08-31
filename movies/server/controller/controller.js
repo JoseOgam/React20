@@ -30,4 +30,14 @@ const getOne = async (req, res) => {
     return error.message;
   }
 };
-module.exports = { addMovies, getMovies, getOne };
+
+const upDate = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedData = req.body;
+    const option = { new: true };
+    const update = await Movies.findByIdAndUpdate(id, updatedData, option);
+    res.status(200).send(update);
+  } catch (error) {}
+};
+module.exports = { addMovies, getMovies, getOne, upDate };
