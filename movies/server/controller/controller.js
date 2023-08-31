@@ -38,6 +38,18 @@ const upDate = async (req, res) => {
     const option = { new: true };
     const update = await Movies.findByIdAndUpdate(id, updatedData, option);
     res.status(200).send(update);
-  } catch (error) {}
+  } catch (error) {
+    return error.message;
+  }
 };
-module.exports = { addMovies, getMovies, getOne, upDate };
+
+const deleteMovie = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await Movies.findByIdAndDelete(id);
+    res.status(200).send(`movie with id ${data._id} has been deleted`);
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+module.exports = { addMovies, getMovies, getOne, upDate, deleteMovie };
