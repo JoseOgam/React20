@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies } from "./store/slice";
+import { deleteMovie, fetchMovies } from "./store/slice";
 
 const ListMovies = () => {
   const { movies, loading } = useSelector((status) => status.movies);
@@ -13,6 +13,7 @@ const ListMovies = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div>
       {" "}
@@ -21,6 +22,9 @@ const ListMovies = () => {
           <div key={id}>
             <h2>{item.name}</h2>
             <p> {item.genre} </p>
+            <button onClick={() => dispatch(deleteMovie(item.id))}>
+              delete
+            </button>
           </div>
         );
       })}{" "}

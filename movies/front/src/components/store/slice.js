@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "http://localhost:5000/getmovies";
-const add_url = "http://localhost:5000/addmovie";
+const url = "http://localhost:5000/movies/getmovies";
+const add_url = "http://localhost:5000/movies/addmovie";
 
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
   try {
@@ -25,11 +25,24 @@ export const addMovies = createAsyncThunk(
   }
 );
 
+export const deleteMovie = createAsyncThunk(
+  "movies/deleteMovies",
+  async ({ _id }) => {
+    try {
+      await axios.delete(`http://localhost:5000/movies/delete/${_id}`);
+      return { _id };
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
+
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
     status: false,
+    error: null,
   },
   reducers: {
     postMovies: () => {},
@@ -48,6 +61,23 @@ const moviesSlice = createSlice({
     },
     [addMovies.fulfilled]: (state, action) => {
       state.movies.concat(action.payload);
+      console.log("added");
+    },
+    [deleteMovie.pending]: (state, action) => {
+      state.status = true;
+      console.log("false");
+    },
+    [deleteMovie.fulfilled]: (state, action) => {
+      state.status = false;
+      const { _id } = action.payload;
+      if (_id) {
+        state.movies = state.movies.filter((item) => item._id !== _id);
+        console.log("deleted");
+      }
+    },
+    [deleteMovie.rejected]: (state, action) => {
+      state.status = false;
+      state.error = action.payload;
     },
   },
 });

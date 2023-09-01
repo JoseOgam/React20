@@ -11,7 +11,7 @@ dbConnect();
 app.use(express.json());
 app.use(cors());
 app.use(bodyParse.urlencoded({ extended: false }));
-app.use(router);
+app.use("/movies", router);
 
 const port = process.env.PORT || 5000;
 
