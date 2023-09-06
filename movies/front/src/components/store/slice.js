@@ -27,7 +27,8 @@ export const addMovies = createAsyncThunk(
 
 export const deleteMovie = createAsyncThunk(
   "movies/deleteMovies",
-  async ({ _id }) => {
+  async (_id) => {
+    // console.log(_id);
     try {
       await axios.delete(`http://localhost:5000/movies/delete/${_id}`);
       return { _id };
@@ -61,18 +62,18 @@ const moviesSlice = createSlice({
     },
     [addMovies.fulfilled]: (state, action) => {
       state.movies.concat(action.payload);
-      console.log("added");
+      // console.log("added");
     },
     [deleteMovie.pending]: (state, action) => {
       state.status = true;
-      console.log("false");
+      // console.log("false");
     },
     [deleteMovie.fulfilled]: (state, action) => {
       state.status = false;
       const { _id } = action.payload;
       if (_id) {
         state.movies = state.movies.filter((item) => item._id !== _id);
-        console.log("deleted");
+        // console.log("deleted");
       }
     },
     [deleteMovie.rejected]: (state, action) => {

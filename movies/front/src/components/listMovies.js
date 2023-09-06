@@ -20,11 +20,26 @@ const ListMovies = () => {
       {movies.map((item, id) => {
         return (
           <div key={id}>
-            <h2>{item.name}</h2>
-            <p> {item.genre} </p>
-            <button onClick={() => dispatch(deleteMovie(item.id))}>
-              delete
-            </button>
+            <table>
+              <tr>
+                <th>title</th>
+                <th>year</th>
+                <th>genre</th>
+                <th>ratings</th>
+                <th>Action</th>
+              </tr>
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.year}</td>
+                <td>{item.genre}</td>
+                <td>{item.ratings}</td>
+                <td>
+                  <button onClick={() => dispatch(deleteMovie(item._id))}>
+                    delete
+                  </button>
+                </td>
+              </tr>
+            </table>
           </div>
         );
       })}{" "}
