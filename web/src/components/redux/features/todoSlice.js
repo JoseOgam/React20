@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const todoSlice = createSlice({
   name: "TODO",
   initialState: {
-    todos: [{ title: "Coding", body: "Im building a react app" }],
+    todos: [],
   },
   reducers: {
     addTodo: (state, action) => {
@@ -14,7 +14,9 @@ const todoSlice = createSlice({
       };
       state.todos.push(newTodo);
     },
-    deleteTodo: () => {},
+    deleteTodo: (state, action) => {
+      return state.todos.filter((item) => item.id !== action.payload.id);
+    },
   },
 });
 

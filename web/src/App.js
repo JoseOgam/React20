@@ -5,7 +5,9 @@ import ListTodo from "./components/listTodo";
 const App = () => {
   return (
     <div>
-      <h2>React Todo with Reduxjs/toolkit</h2>
+      <h1 className="text-3xl font-bold alert alert-primary underline text-center">
+        React Reduxjs toolkit
+      </h1>
       <AddTodos />
       <ListTodo />
     </div>
