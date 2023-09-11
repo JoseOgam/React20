@@ -1,6 +1,7 @@
 import React from "react";
 import AddTodos from "./components/addTodos";
 import ListTodo from "./components/listTodo";
+import "./tailwind.generated.css";
 
 const App = () => {
   return (

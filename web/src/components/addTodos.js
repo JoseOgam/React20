@@ -16,21 +16,38 @@ const AddTodos = () => {
   return (
     <div>
       <div>
-        <form onSubmit={storeTodo}>
+        <form id="task-form" class="flex justify-center mb-4">
           <input
             type="text"
-            placeholder="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            id="task-input"
+            class="w-full p-2 rounded-lg shadow-lg"
           />
-          <input
-            type="text"
-            placeholder="body"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-          />
-          <input type="submit" />
+          <button type="submit" class="p-2 rounded-full bg-blue-500 text-white">
+            Add
+          </button>
         </form>
+        {/* <form className="w-full max-w-sm" onSubmit={storeTodo}>
+          <div className="md:flex md:items-center mb-6">
+            <div className="md:w-1/3">
+              <input
+                type="text"
+                placeholder="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="body"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+              />
+            </div>
+            <input type="submit" />
+          </div>
+        </form> */}
       </div>
     </div>
   );

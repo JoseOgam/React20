@@ -4,26 +4,21 @@ import { useSelector } from "react-redux";
 import List from "./list";
 
 const ListTodo = () => {
-  const { todos } = useSelector((state) => state.todos);
+  const todos = useSelector((state) => {
+    return state.todos;
+  });
 
   return (
     <div>
-      <div>
-        <div>
-          <div>
-            <button className="btn btn-success">ADD +</button>
-          </div>
-          {todos.map((item, index) => (
-            <List
-              key={index}
-              title={item.title}
-              body={item.body}
-              id={item.id}
-              index={index + 1}
-            />
-          ))}
-        </div>
-      </div>
+      {todos.map((todo, index) => (
+        <List
+          key={index}
+          title={todo.title}
+          body={todo.body}
+          id={todo.id}
+          index={index + 1}
+        />
+      ))}
     </div>
   );
 };
