@@ -16,17 +16,7 @@ const AddTodos = () => {
   return (
     <div>
       <div>
-        <form id="task-form" class="flex justify-center mb-4">
-          <input
-            type="text"
-            id="task-input"
-            class="w-full p-2 rounded-lg shadow-lg"
-          />
-          <button type="submit" class="p-2 rounded-full bg-blue-500 text-white">
-            Add
-          </button>
-        </form>
-        {/* <form className="w-full max-w-sm" onSubmit={storeTodo}>
+        <form className="w-full max-w-sm" onSubmit={storeTodo}>
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-1/3">
               <input
@@ -47,7 +37,7 @@ const AddTodos = () => {
             </div>
             <input type="submit" />
           </div>
-        </form> */}
+        </form>
       </div>
     </div>
   );
