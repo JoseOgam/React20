@@ -1,5 +1,11 @@
+import AddTask from "./components/addTask";
+
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <AddTask />
+    </div>
+  );
 }
 
 export default App;
