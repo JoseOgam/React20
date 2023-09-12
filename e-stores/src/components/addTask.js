@@ -12,9 +12,12 @@ const AddTask = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTask({ task: task }));
+    if (task) {
+      dispatch(addTask({ task: task }));
+    }
     setTask("");
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
