@@ -9,10 +9,15 @@ const ListTasks = () => {
   });
 
   return (
-    <div>
+    <div className="display">
+      <div className="titles">
+        <h1>ID</h1>
+        <h1>TASK</h1>
+        <h1>ACTIONS</h1>
+      </div>
       <div>
-        {tasks.map((item) => (
-          <Task key={item.id} task={item.task} id={item.id} />
+        {tasks.map((item, index) => (
+          <Task key={item.id} task={item.task} id={item.id} index={index + 1} />
         ))}
       </div>
     </div>

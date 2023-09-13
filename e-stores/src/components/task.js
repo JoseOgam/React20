@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteTask } from "./redux/features/slice";
 
-const Task = ({ task, id }) => {
+const Task = ({ task, id, index }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteTask({ id: id }));
@@ -10,9 +10,13 @@ const Task = ({ task, id }) => {
   };
   return (
     <div>
-      <div>
-        <h1> {task} </h1>
-        <button onClick={handleDelete}>delete</button>
+      <div className="task">
+        <h3>{index} </h3>
+        <h3> {task} </h3>
+        <div className="actions">
+          <button onClick={handleDelete}>delete</button>
+          <button>update</button>
+        </div>
       </div>
     </div>
   );
