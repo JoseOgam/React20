@@ -22,12 +22,13 @@ const AddTask = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          className="addInput"
           type="text"
           placeholder="add Task"
           value={task}
           onChange={handleTask}
         />
-        <input type="submit" placeholder="addTask" />
+        <input className="sub" type="submit" placeholder="addTask" />
       </form>
     </div>
   );

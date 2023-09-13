@@ -14,8 +14,10 @@ const Task = ({ task, id, index }) => {
         <h3>{index} </h3>
         <h3> {task} </h3>
         <div className="actions">
-          <button onClick={handleDelete}>delete</button>
-          <button>update</button>
+          <button className="delete" onClick={handleDelete}>
+            delete
+          </button>
+          <button className="update">update</button>
         </div>
       </div>
     </div>

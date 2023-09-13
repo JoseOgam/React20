@@ -47,3 +47,20 @@ form {
 button {
   border-radius: 30px;
 }
+
+.delete {
+  background-color: rgb(179, 93, 93);
+}
+.update {
+  background-color: rgb(46, 46, 132);
+  margin-left: 30px;
+}
+
+.addInput {
+  border-radius: 10px;
+}
+.sub {
+  margin-top: 20px;
+  background-color: rgb(45, 50, 187);
+  border-radius: 10px;
+}
