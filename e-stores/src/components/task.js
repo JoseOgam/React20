@@ -1,11 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteTask } from "./redux/features/slice";
+import { deleteTask, editTask } from "./redux/features/slice";
 
 const Task = ({ task, id, index }) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
     dispatch(deleteTask({ id: id }));
+    console.log(id);
+  };
+  const handleUpdate = () => {
+    dispatch(editTask({ id: id }));
     console.log(id);
   };
   return (
@@ -17,7 +21,9 @@ const Task = ({ task, id, index }) => {
           <button className="delete" onClick={handleDelete}>
             delete
           </button>
-          <button className="update">update</button>
+          <button className="update" onClick={handleUpdate}>
+            update
+          </button>
         </div>
       </div>
     </div>
