@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { copy, loader, tick, linkIcon } from "../assets";
+import { useLazyGetSummaryQuery } from "../services/article";
 
 const Demo = () => {
   const [article, setArticle] = useState({
@@ -7,10 +8,33 @@ const Demo = () => {
     summary: "",
   });
 
+  const [allArticles, setAllArticles] = useState([]);
+
+  const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
+
+  useEffect(() => {
+    const articlesFromLocalStorage = JSON.parse(
+      localStorage.getItem("articles")
+    );
+    if (articlesFromLocalStorage) {
+      setAllArticles(article);
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("submitted");
+    const { data } = getSummary({ articleUrl: article.url });
+    if (data?.summary) {
+      const newArticle = { ...article, summary: data.summary };
+      const updatedAllArticles = [newArticle, ...allArticles];
+      setArticle(newArticle);
+      setAllArticles(updatedAllArticles);
+
+      localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
+      console.log(newArticle);
+    }
   };
+
   return (
     <section className="mt-16 w-full max-w-xl">
       <div className="flex flex-col w-full gap-2">
@@ -36,6 +60,18 @@ const Demo = () => {
           </button>
         </form>
         {/* display history */}
+        <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
+          {allArticles.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => setArticle(item)}
+              className="link_card"
+            >
+              <h2>Debbug</h2>
+              {console.log(item.url)}
+            </div>
+          ))}
+        </div>
       </div>
       {/* display results */}
     </section>
