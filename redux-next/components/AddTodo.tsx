@@ -10,7 +10,7 @@ const AddTodo = () => {
   const [todo, setTodo] = useState("");
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    dispatch(addTodo({ todo: todo }));
+    dispatch(addTodo);
     console.log(todo);
   };
   return (
