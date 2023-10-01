@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/todoSlice";
 
 const Demo = () => {
+  const dispatch = useDispatch();
+  const [todo, setTodo] = useState([]);
+  const handleOnChange = (e) => {
+    setTodo(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addTodo({ newTodo: todo }));
+    setTodo("");
+  };
+
   return (
     <section className="w-full mt-16 max-w-xl">
       <div className="flex flex-col w-full gap-2">
-        <form className="flex justify-center items-center">
-          <input type="text" placeholder="write your todo..." />
+        <form className="grid justify-center items-center gap-5">
+          <input
+            value={todo}
+            onChange={handleOnChange}
+            type="text"
+            placeholder="write your todo..."
+          />
+          <button
+            onClick={handleSubmit}
+            type="button"
+            className="bg-pink-900 rounded"
+          >
+            add
+          </button>
         </form>
       </div>
     </section>
