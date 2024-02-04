@@ -3,6 +3,7 @@ import Demo from "./components/Demo";
 import Footer from "./components/Footer";
 import "./App.css";
 import ListTodos from "./components/ListTodos";
+import { Toaster } from "react-hot-toast";
 const App = () => {
   return (
     <main>
@@ -13,6 +14,7 @@ const App = () => {
         <Hero />
         <Demo />
         <ListTodos />
+        <Toaster />
         <Footer />
       </div>
     </main>

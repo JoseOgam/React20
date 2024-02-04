@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { edit, remove } from "../assets";
 import { removeTodo } from "../redux/todoSlice";
+import toast from "react-hot-toast";
 
 const ListTodos = () => {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const ListTodos = () => {
   const handleDelete = (id) => {
     console.log("delete");
     dispatch(removeTodo({ id }));
+    toast.success("deleted succesfully");
   };
 
   // useEffect(() => {

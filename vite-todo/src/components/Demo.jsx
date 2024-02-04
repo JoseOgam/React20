@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
+import { toast } from "react-hot-toast";
 
 const Demo = () => {
   const dispatch = useDispatch();
@@ -21,9 +22,17 @@ const Demo = () => {
     setTodo(e.target.value);
   };
 
+  const notify = () => toast.success("Todo successfully added");
+  const notifyError = () => toast.error("Please add Todo");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTodo({ newTodo: todo }));
+    if (todo.length === 0) {
+      notifyError();
+    } else {
+      dispatch(addTodo({ newTodo: todo }));
+      notify();
+    }
     setTodo("");
   };
 
