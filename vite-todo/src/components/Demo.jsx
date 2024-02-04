@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
 
 const Demo = () => {
   const dispatch = useDispatch();
-  const [todo, setTodo] = useState([]);
+  const [todo, setTodo] = useState("");
+
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todod"));
+    if (storedTodos) {
+      setTodo(storedTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todo));
+  }, [todo]);
+
   const handleOnChange = (e) => {
     setTodo(e.target.value);
   };
