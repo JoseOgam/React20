@@ -1,10 +1,15 @@
 // import "./App.css";
-import { Chat } from "./components/index";
+import { Chat, NavBar } from "./components/index";
 
 function App() {
   return (
     <>
-      <Chat />
+      <div>
+        <NavBar />
+      </div>
+      <div>
+        <Chat />
+      </div>
     </>
   );
 }
