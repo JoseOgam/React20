@@ -24,11 +24,11 @@ const Chat = () => {
           <div className="flex flex-col space-y-4">
             <div className="flex justify-start">
               <div className="bg-gray-300 p-4 rounded-lg">
-                <p className="text-gray-700">
-                  {Chats.map((NewChat: any) => (
-                    <div key={NewChat.id}> {NewChat.chat} </div>
-                  ))}
-                </p>
+                {Chats.map((NewChat: any) => (
+                  <div key={NewChat.id}>
+                    <p className=" text-gray-700">{NewChat.chat}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
