@@ -1,4 +1,5 @@
 import {
+  AddExpenseForm,
   Budget,
   ExpenseList,
   ExpenseTotal,
@@ -28,6 +29,9 @@ const App = () => {
       </div>
       <div>
         <ExpenseList />
+      </div>
+      <div>
+        <AddExpenseForm />
       </div>
     </div>
   );

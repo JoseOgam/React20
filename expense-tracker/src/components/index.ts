@@ -3,5 +3,6 @@ import Remaining from "./Remaining";
 import Spent from "./Spent";
 import ExpenseTotal from "./ExpenseTotal";
 import ExpenseList from "./ExpenseList";
+import AddExpenseForm from "./AddExpenseForm";
 
-export { Budget, Remaining, Spent, ExpenseTotal, ExpenseList };
+export { Budget, Remaining, Spent, ExpenseTotal, ExpenseList, AddExpenseForm };
