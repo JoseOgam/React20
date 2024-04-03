@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createChat } from "../redux/reducers/chatSlice";
 
 const Chat = () => {
+  const Chats = useSelector((state: any) => state.chat.chat);
+  const dispath = useDispatch();
+  console.log(Chats);
   const [chat, setChat] = useState("");
 
   const handleSubmit = (e: any) => {
     try {
       e.preventDefault();
-      console.log("submitted");
+      dispath(createChat({ newChat: chat }));
+      setChat("");
     } catch (error: any) {
       console.log(error.message);
     }
@@ -18,7 +24,11 @@ const Chat = () => {
           <div className="flex flex-col space-y-4">
             <div className="flex justify-start">
               <div className="bg-gray-300 p-4 rounded-lg">
-                <p className="text-gray-700">Hello there!</p>
+                <p className="text-gray-700">
+                  {Chats.map((NewChat: any) => (
+                    <div key={NewChat.id}> {NewChat.chat} </div>
+                  ))}
+                </p>
               </div>
             </div>
 
@@ -33,6 +43,8 @@ const Chat = () => {
         <form onSubmit={handleSubmit} className="bg-white p-4">
           <input
             type="text"
+            value={chat}
+            onChange={(e: any) => setChat(e.target.value)}
             placeholder="Type your message..."
             className="w-full py-2 px-4 border rounded-lg focus:outline-none focus:border-blue-500"
           />
