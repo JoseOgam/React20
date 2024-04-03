@@ -1,4 +1,16 @@
+import { useState } from "react";
+
 const Chat = () => {
+  const [chat, setChat] = useState("");
+
+  const handleSubmit = (e: any) => {
+    try {
+      e.preventDefault();
+      console.log("submitted");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
   return (
     <div>
       <div className="flex flex-col h-screen">
@@ -18,7 +30,7 @@ const Chat = () => {
           </div>
         </div>
 
-        <div className="bg-white p-4">
+        <form onSubmit={handleSubmit} className="bg-white p-4">
           <input
             type="text"
             placeholder="Type your message..."
@@ -27,7 +39,7 @@ const Chat = () => {
           <button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg focus:outline-none">
             Send
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
