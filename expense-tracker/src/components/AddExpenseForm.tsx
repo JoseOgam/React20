@@ -5,11 +5,17 @@ const AddExpenseForm = () => {
         <form className=" max-w-sm">
           <div className="flex flex-col">
             <span>Expense</span>
-            <input className=" border border-black rounded" type="text" />
+            <input
+              className=" border border-black rounded px-2 py-2"
+              type="text"
+            />
           </div>
           <div className="flex flex-col">
             <span>Cost</span>
-            <input className=" border border-black rounded" type="text" />
+            <input
+              className=" border border-black rounded px-2 py-2"
+              type="number"
+            />
           </div>
           <div className="flex items-center justify-center pt-4">
             <button className=" bg-blue-700 py-1 px-2 w-1/2 rounded">
