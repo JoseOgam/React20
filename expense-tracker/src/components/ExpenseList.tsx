@@ -11,7 +11,7 @@ const ExpenseList = () => {
     <div>
       <div>
         {expenses.map((expense) => (
-          <div>
+          <div key={expense.id}>
             <ExpenseItems
               id={expense.id}
               name={expense.name}
