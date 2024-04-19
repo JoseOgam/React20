@@ -45,7 +45,7 @@ const NavBar = () => {
           <ul
             className={
               nav
-                ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
+                ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 scroll-m-5"
                 : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
             }
           >
@@ -59,8 +59,9 @@ const NavBar = () => {
               <li
                 key={item.id}
                 className="p-4 border-b rounded-xl hover:bg-[#00df9a] text-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600"
+                onClick={handleNav}
               >
-                <a href={`#${item.url}`}> {item.text}</a>
+                <a href={`#${item.url}`}>{item.text}</a>
               </li>
             ))}
           </ul>
