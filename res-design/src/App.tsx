@@ -25,7 +25,7 @@ const App = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quae
             dolorum debitis consectetur dolores, eos ad consequuntur soluta
             harum officia quasi praesentium delectus facilis quas a deleniti
-            mollitia dolore nesciunt?
+            mollitia dolore nesciunt
           </p>
         </div>
       </section>
