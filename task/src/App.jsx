@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import AddTask from "./components/addTask";
+import ListTask from "./components/listTask";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <h3>Keep tarck of your work!</h3>
         <div>
           <AddTask />
+        </div>
+        <div>
+          <ListTask />
         </div>
       </div>
     </>

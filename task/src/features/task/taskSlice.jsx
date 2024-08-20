@@ -12,8 +12,15 @@ export const taskSlice = createSlice({
       };
       state.push(newTask);
     },
-    toggleTask: (state, action) => {},
-    deleteTask: (state, action) => {},
+    toggleTask: (state, action) => {
+      const task = state.find((task) => task.id === action.payload);
+      if (task) {
+        task.completed = !task.completed;
+      }
+    },
+    deleteTask: (state, action) => {
+      return state.filter((task) => task.id !== action.payload);
+    },
   },
 });
 
