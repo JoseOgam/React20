@@ -1,15 +1,17 @@
 import { useState } from "react";
-
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
-import Header from "./components/header";
+import AddTask from "./components/addTask";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div>
-        <Header />
+        <h3>Keep tarck of your work!</h3>
+        <div>
+          <AddTask />
+        </div>
       </div>
     </>
   );
