@@ -5,6 +5,7 @@ import { addTask } from "../features/task/taskSlice";
 const AddTask = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+
   const handeSubmit = (e) => {
     e.preventDefault();
     if (input.trim()) {
