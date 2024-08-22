@@ -13,7 +13,7 @@ const ListTask = () => {
           <li
             key={task.id}
             style={{ textDecoration: task.completed ? "line-through" : "none" }}
-            className="flex justify-between items-center"
+            className="flex justify-evenly items-center"
           >
             {index + 1}. {task.text}
             <div className=" space-x-2 space-y-2">

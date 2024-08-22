@@ -9,7 +9,9 @@ function App() {
   return (
     <>
       <div>
-        <h3>Keep tarck of your work!</h3>
+        <h3 className=" font-extrabold underline pb-4">
+          Keep tarck of your work!
+        </h3>
         <div>
           <AddTask />
         </div>
