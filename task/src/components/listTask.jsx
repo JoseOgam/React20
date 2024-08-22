@@ -12,10 +12,16 @@ const ListTask = () => {
         {task.map((task, index) => (
           <li
             key={task.id}
-            style={{ textDecoration: task.completed ? "line-through" : "none" }}
+            style={{
+              textDecoration: task.completed ? "line-through" : "none",
+              textDecorationColor: task.completed ? "red" : "none",
+              textDecorationThickness: task.completed ? "3px" : "none",
+            }}
             className="flex justify-evenly items-center"
           >
-            {index + 1}. {task.text}
+            <div className=" text-slate-50">
+              {index + 1}. {task.text}
+            </div>
             <div className=" space-x-2 space-y-2">
               <button
                 type="button"
