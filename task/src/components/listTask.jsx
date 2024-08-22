@@ -13,14 +13,24 @@ const ListTask = () => {
           <li
             key={task.id}
             style={{ textDecoration: task.completed ? "line-through" : "none" }}
+            className="flex justify-between items-center"
           >
             {task.text}
-            <button onClick={() => dispatch(toggleTask(task.id))}>
-              {task.completed ? `undo` : `complete`}{" "}
-            </button>
-            <button onClick={() => dispatch(deleteTask(task.id))}>
-              delete
-            </button>
+            <div className=" space-x-2 space-y-2">
+              <button
+                type="button"
+                className=" px-1 py-1 bg-lime-400 rounded-md "
+                onClick={() => dispatch(toggleTask(task.id))}
+              >
+                {task.completed ? `undo` : `complete`}{" "}
+              </button>
+              <button
+                className=" px-1 py-1 bg-red-400 rounded-md "
+                onClick={() => dispatch(deleteTask(task.id))}
+              >
+                delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

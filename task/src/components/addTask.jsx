@@ -22,7 +22,12 @@ const AddTask = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="add your task..."
         />
-        <button onClick={handeSubmit}>add Task</button>
+        <button
+          className=" bg-violet-600 rounded-md px-2"
+          onClick={handeSubmit}
+        >
+          add Task
+        </button>
       </form>
     </div>
   );
