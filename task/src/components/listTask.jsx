@@ -7,15 +7,15 @@ const ListTask = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="pt-4">
       <ul>
-        {task.map((task) => (
+        {task.map((task, index) => (
           <li
             key={task.id}
             style={{ textDecoration: task.completed ? "line-through" : "none" }}
             className="flex justify-between items-center"
           >
-            {task.text}
+            {index + 1}. {task.text}
             <div className=" space-x-2 space-y-2">
               <button
                 type="button"

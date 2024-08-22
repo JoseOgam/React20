@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const loadFromLocalStorage = () => {
+  const tasks = localStorage.getItem("tasks");
+  return tasks ? JSON.parse(tasks) : [];
+};
+
 export const taskSlice = createSlice({
   name: "task",
-  initialState: [],
+  initialState: loadFromLocalStorage(),
   reducers: {
     addTask: (state, action) => {
       const newTask = {
@@ -11,15 +16,19 @@ export const taskSlice = createSlice({
         completed: false,
       };
       state.push(newTask);
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
     toggleTask: (state, action) => {
       const task = state.find((task) => task.id === action.payload);
       if (task) {
         task.completed = !task.completed;
       }
+      localStorage.setItem("tasks", JSON.stringify(state));
     },
     deleteTask: (state, action) => {
-      return state.filter((task) => task.id !== action.payload);
+      const updatedState = state.filter((task) => task.id !== action.payload);
+      localStorage.setItem("tasks", JSON.stringify(updatedState));
+      return updatedState;
     },
   },
 });
