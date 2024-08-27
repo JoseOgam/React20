@@ -82,5 +82,8 @@ list.append(10);
 list.append(15);
 list.append(20);
 list.prepend(2);
+console.log(list.search(15));
+
+console.log(list.search(100));
 
 list.print();
