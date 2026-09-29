@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../../services/slice/slice";
 import Task from "../../components/Task";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const [task, setTask] = useState("");
@@ -10,6 +11,16 @@ const Home = () => {
   const handleAddTask = () => {
     if (task.trim() !== "") {
       dispatch(addTask(task));
+
+      // tigger a toast notification for successful task addition
+
+      toast.success(`Task "${task}" added successfully!`, {
+        style: {
+          borderRadius: "8px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
       setTask("");
     }
   };

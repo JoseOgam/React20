@@ -1,12 +1,14 @@
 import type { RootState } from "../services/store";
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Task = () => {
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
   const dispatch = useDispatch();
-  const handleDeletetask = (id: string) => {
+  const handleDeletetask = (id: string, title: string) => {
     // Implementation for deleting a task
     dispatch({ type: "tasks/deleteTask", payload: id });
+    toast.error(`Removed: "${title}"`);
     console.log(`Delete task with id: ${id}`);
   };
   return (
@@ -23,7 +25,7 @@ const Task = () => {
               {index + 1}. {task.title}
             </p>
             <button
-              onClick={() => handleDeletetask(task.id)}
+              onClick={() => handleDeletetask(task.id, task.title)}
               className="border rounded-md bg-red-500 text-white py-1 px-3 hover:bg-red-600"
             >
               delete
