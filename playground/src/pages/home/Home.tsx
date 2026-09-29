@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../services/slice/slice";
+import Task from "../../components/Task";
 
 const Home = () => {
   const [task, setTask] = useState("");
+  const dispatch = useDispatch();
 
   const handleAddTask = () => {
     if (task.trim() !== "") {
-      console.log("task added:", task);
+      dispatch(addTask(task));
       setTask("");
     }
   };
@@ -25,6 +29,9 @@ const Home = () => {
         >
           Add Task
         </button>
+      </div>
+      <div>
+        <Task />
       </div>
     </div>
   );
